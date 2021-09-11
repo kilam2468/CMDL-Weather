@@ -26,7 +26,7 @@ while works == 0: #If Name of Major City is Invalid
     try:
         woeid = jsonlocation[0]['woeid'] #Getting WoeID
         City = jsonlocation[0]['title'] #Getting Full Name of City
-        works = 1
+        works = 1 #Sets "Works" to 1 ending and ends loop.
     except IndexError:
         print("Invalid Major City, Try Again: ")
         area = input("Please Type in Closest Major City: ") #get Major city from user
