@@ -17,7 +17,7 @@ wApi = "https://www.metaweather.com/api/location/search/" #MetaWeather API
 area = input("Please Type in Closest Major City: ") #get Major city from user
 location = requests.get(wApi + "?query="+ area)
 
-print(location.json())
+# print(location.json()) #Prints Location.Json
 
 jsonlocation = location.json()
 woeid = jsonlocation[0]['woeid'] #Getting WoeID
@@ -41,7 +41,7 @@ jsonWeather = weather.json() #Gathering JSON Data
 # print("Todays Maximum Temperature will be: " + str(celcToFar(day1Max)) + degree_sign + "F")
 # print("Todays Current Temperature is : " + str(celcToFar(day1Current)) + degree_sign + "F")
 
-daysDisplayedEntered = input("How Many days would you Like to see?: ") #Asks how many days from User
+daysDisplayedEntered = input("How Many days would you like to see?: ") #Asks how many days from User
 daysDisplayed = int(daysDisplayedEntered)
 while int(daysDisplayed) > 6: #Max Days showed from MetaWeather is 6
     print("6 is Max, Please try again")
