@@ -4,6 +4,7 @@
 import requests
 
 count = 0
+works = 0
 
 degree_sign = u"\N{DEGREE SIGN}" #Degree Sign
 
@@ -20,8 +21,28 @@ location = requests.get(wApi + "?query="+ area)
 # print(location.json()) #Prints Location.Json
 
 jsonlocation = location.json()
+
+while works == 0: #If Name of Major City is Invalid
+    try:
+        woeid = jsonlocation[0]['woeid'] #Getting WoeID
+        City = jsonlocation[0]['title'] #Getting Full Name of City
+        works = 1
+    except IndexError:
+        print("Invalid Major City, Try Again: ")
+        area = input("Please Type in Closest Major City: ") #get Major city from user
+        location = requests.get(wApi + "?query="+ area)
+        jsonlocation = location.json()
+        if jsonlocation == []: #Checks to see if new city given is valid
+            print("---------------------------------") #If new City is invalid, Prints Lines and restarts
+        else:
+            works=1 #if New City Given is valid, Sets "Works" to 1 ending loop.
+
+
+
+
 woeid = jsonlocation[0]['woeid'] #Getting WoeID
 City = jsonlocation[0]['title'] #Getting Full Name of City
+
 print("City: "+ City)
 print("Woeid: " + str(woeid))
 
