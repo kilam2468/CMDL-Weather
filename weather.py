@@ -1,5 +1,6 @@
 #App will ask city
-#find city and use API to find 
+#Find city and use API to find 
+#Finds Tempatures for up to 6 Days
 
 import requests
 
